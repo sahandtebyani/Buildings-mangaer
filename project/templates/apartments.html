@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    Apartments of Building {{ building_name }}
+{% endblock %}
+
+{% block content %}
+    <div class="container pt-5">
+        <div class="row">
+            <div class=" col-4 pb-2">
+                <a href="{% url 'apartment-form' %}">
+                    <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Create Apartment</button>
+                </a>
+            </div>
+            <div class="col-4 offset-4">
+                <p><a href="{% url 'home' %}">Dashboard</a> > <a href="{% url 'buildings' %}">Buildings</a> > Apartments</p>
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Building Name</th>
+                    <th scope="col">Apartment No</th>
+                    <th scope="col">Number Of Bedrooms</th>
+                    <th scope="col">Floor No</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Profiles</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for apartment in apartments %}
+                    <tr>
+                        <td>{{ apartment.building_name }}</td>
+                        <td>{{ apartment.apartment_no }}</td>
+                        <td>{{ apartment.number_of_bedrooms }}</td>
+                        <td>{{ apartment.floor_no }}</td>
+                        <td>{{ apartment.notes }}</td>
+                        <td>{{ apartment.profiles }}</td>
+                        <td><a href=""><i class="fas fa-caret-square-down" style="color : black"></i></a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

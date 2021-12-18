@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    Buildings
+{% endblock %}
+
+{% block content %}
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-4 pb-2">
+                <a href="{% url 'building-form' %}">
+                <button class="btn btn-primary"><i class="fas fa-plus-square"></i> Create Building</button>
+            </a>
+            </div>
+            <div class="col-2 offset-6">
+                <p><a href="{% url 'home' %}">Dashboard</a> > Buildings</p>
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Project</th>
+                    <th scope="col">Project Phase</th>
+                    <th scope="col">Building Name</th>
+                    <th scope="col">Building Type</th>
+                    <th scope="col">Total Apartments</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for building in buildings %}
+                    <tr>
+                        <td>{{ building.project }}</td>
+                        <td>{{ building.project_phase }}</td>
+                        <td>{{ building.building_name }}</td>
+                        <td>{{ building.building_type }}</td>
+                        <td>{{ building.total_apartments }}</td>
+                        <td><a href="{% url 'building-apartments' id=building.id %}"><i class="fas fa-caret-square-down"
+                                                                                        style="color : black"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

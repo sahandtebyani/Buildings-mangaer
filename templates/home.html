@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block title %}Real State Web{% endblock %}
+
+{% block content %}
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+            <h5 class="card-header">Apartments</h5>
+            <div class="card-body">
+                <h5 class="card-title">Projects are Available</h5>
+                <p class="card-text">Explore for Buildings</p>
+                <a href="{% url 'buildings' %}" class="btn btn-primary">Go to Buildings</a>
+            </div>
+        </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add New building</h5>
+                        <a href="{% url 'building-form' %}" class="btn btn-primary">Add Building</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add new Apartment</h5>
+                        <a href="{% url 'apartment-form' %}" class="btn btn-primary">Add Apartment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

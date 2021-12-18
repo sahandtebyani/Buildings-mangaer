@@ -1,0 +1,26 @@
+{% load render_partial %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- header references must apply here -->
+    {% include 'header_references.html' %}
+    <!-- each page title's goes into this block -->
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<!-- all header content applies here -->
+{% render_partial 'header' %}
+
+<!-- each page content's goes into this block -->
+{% block content %}{% endblock %}
+
+<!-- all footer content applies here -->
+{% render_partial 'footer' %}
+
+<!-- footer references must apply here -->
+{% include 'footer_references.html' %}
+</body>
+</html>

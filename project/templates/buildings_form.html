@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block title %} Building Form {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-6 offset-3">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <h3>New Building</h3>
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{ building_form.project.id_for_label }}">{{ building_form.project.label }}</label>
+                    {{ building_form.project }}
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{ building_form.project_phase.id_for_label }}">{{ building_form.project_phase.label }}</label>
+                    {{ building_form.project_phase }}
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{ building_form.building_name.id_for_label }}">{{ building_form.building_name.label }}</label>
+                    {{ building_form.building_name }}
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{ building_form.building_type.id_for_label }}">{{ building_form.building_type.label }}</label>
+                    {{ building_form.building_type }}
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{ building_form.total_apartments.id_for_label }}">{{ building_form.total_apartments.label }}</label>
+                    {{ building_form.total_apartments }}
+                </div>
+                <div class="form-group p-2">
+                    <button type="submit" class="btn btn-outline-primary">Add Building</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}
